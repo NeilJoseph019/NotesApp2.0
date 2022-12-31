@@ -5,4 +5,3 @@ class NoteSerializer(ModelSerializer):
     class Meta:
         model = Note
         fields = "__all__"
-        exclude = ['body_contd']

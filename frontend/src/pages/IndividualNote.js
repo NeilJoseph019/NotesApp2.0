@@ -1,12 +1,13 @@
 import React, {useState, useEffect } from 'react'
-import {Link, useParams}  from 'react-router-dom'
-import { Container, Card, Row, Button } from 'react-bootstrap'
+import {Link, useParams, useNavigate}  from 'react-router-dom'
+import { Container, Card, Row, Button, Col } from 'react-bootstrap'
 import axios from 'axios'
 import moment from 'moment'
 
 const IndividualNote = () => {
 
     const {id} = useParams()
+    const navigate = useNavigate()
 
     const[singleNote, setSingleNote] = useState([])
 
@@ -22,6 +23,17 @@ const IndividualNote = () => {
 
     const formattedDate = moment(singleNote.created_time).format('MMMM Do YYYY, h:mm:ss a');
 
+    const config = {
+        headers:{
+            'Content-Type':'application/json'
+        }
+    }
+
+    async function deleteNote(){
+        await axios.delete(`/api/note/${id}/delete`,config)
+        navigate('/')
+    }
+
 
   return (
     <Container>
@@ -36,7 +48,16 @@ const IndividualNote = () => {
         <Container as={'div'}>
             <Card className="text-center">
                 <Card.Header>
-                    <h4>{singleNote.title}</h4>
+                    <Row>
+                        <Col>
+                            <h4>{singleNote.title}</h4>
+                        </Col>
+                        <Col>
+                            <Button variant="outline-danger" onClick={deleteNote}>
+                                Delete
+                            </Button>
+                        </Col>
+                    </Row>
                 </Card.Header>
                 <Card.Body className="text-center">
                         <Row>

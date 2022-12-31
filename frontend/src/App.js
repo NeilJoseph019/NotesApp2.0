@@ -15,8 +15,8 @@ function App() {
       <Container>
         <Routes>
           <Route path='/' element={<NotesList/>}/> 
-          <Route path='/note/update' element={<UpdateNote/>}/>
           <Route path='/note/new' element={<NewNote/>}/>
+          <Route path='/note/:id/update' element={<UpdateNote/>}/>
           <Route path='/note/:id' element={<IndividualNote/>}/>
         </Routes>
       </Container>

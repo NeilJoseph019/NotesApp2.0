@@ -53,6 +53,13 @@ const IndividualNote = () => {
                             <h4>{singleNote.title}</h4>
                         </Col>
                         <Col>
+                            <Link to={`/note/${id}/update`}>
+                                <Button variant="outline-primary" >
+                                    Update
+                                </Button>
+                            </Link>
+                        </Col>
+                        <Col>
                             <Button variant="outline-danger" onClick={deleteNote}>
                                 Delete
                             </Button>

@@ -31,13 +31,13 @@ const NotesList = () => {
                 </Row>
             </Card.Header>
             <Card.Body>
-                <Card.Text>
+                
                     {
                         notes.map((note, index)=>(
                             <ListNote key={index} note={note}/>
                         ))
                     }
-                </Card.Text>
+
             </Card.Body>
         </Card>
     </Container>

@@ -1,10 +1,10 @@
 import React from 'react'
-import {useParams}  from 'react-router-dom'
+// import {useParams}  from 'react-router-dom'
 
 const IndividualNote = () => {
 
-    const {id} = useParams()
-    
+    // const {id} = useParams()
+
 
   return (
     <div>IndividualNote</div>

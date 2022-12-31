@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react'
-import { Container, Row, Col, Card} from 'react-bootstrap'
+import { Container, Row, Col, Card, Button} from 'react-bootstrap'
 import ListNote from '../components/ListNote'
 import axios from 'axios'
+import { Link } from 'react-router-dom'
 
 const NotesList = () => {
 
@@ -27,7 +28,14 @@ const NotesList = () => {
                     </Col>
                     <Col>
                         <h4>Count:{notes.length}</h4> 
-                    </Col>   
+                    </Col>  
+                    <Col>
+                        <Link to={'/note/new'}>
+                            <Button variant="outline-success">
+                                Create New Note
+                            </Button>
+                        </Link>
+                    </Col> 
                 </Row>
             </Card.Header>
             <Card.Body>
